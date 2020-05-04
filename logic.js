@@ -4,9 +4,10 @@ for (const button of buttons) {
 }
 
 function playGame() {
+    let humanSelection = this.id;
     let computerSelection = computerPlay();
-    let humanSelection = event.srcElement.id;
-    console.log(humanSelection);
+    console.log("You chose " + humanSelection);
+    console.log("The computer chose " + computerSelection);
 
     function computerPlay() {
         const computerMoveChoices = ["rock", "paper", "scissors"];
@@ -14,7 +15,9 @@ function playGame() {
         return computerSelection;
     }
 
-    if (humanSelection === "rock" && computerSelection === "scissors" || humanSelection === "paper" && computerSelection === "rock" || humanSelection === "scissors" && computerSelection === "paper") {
+    if (humanSelection === "rock" && computerSelection === "scissors" 
+    || humanSelection === "paper" && computerSelection === "rock" 
+    || humanSelection === "scissors" && computerSelection === "paper") {
         alert(`BOOM! The computer chose ${computerSelection}! You Won!`);
     } else if (humanSelection === computerSelection) {
         alert(`Awkward.. the computer chose ${computerSelection}, too! You Tied!`);
