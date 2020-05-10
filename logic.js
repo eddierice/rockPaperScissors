@@ -1,14 +1,40 @@
+//play the game when the button is clicked
 const buttons = document.querySelectorAll("button")
 for (const button of buttons) {
   button.addEventListener('click', playGame)
 }
 
+//remove the buttons and add text
+function removeElementsByClass(className){
+    var elements = document.getElementsByClassName(className);
+    while(elements.length > 0){
+        elements[0].parentNode.removeChild(elements[0]);
+    }
+}
+
+let buttonDiv = document.getElementById("buttons");
+
+let outcomeMessage = document.createElement("H1");
+outcomeMessage.classList.add("outcomeMessage");
+
+let restartButton = document.createElement("a");
+restartButton.setAttribute('class', 'restart');
+restartButton.setAttribute('onClick', 'refresh()');
+restartButton.innerHTML = "PLAY AGAIN";
+
+function refresh() {
+   location.reload();
+}
+
+
+//run the game logic
 function playGame() {
     let humanSelection = this.id;
     let computerSelection = computerPlay();
     console.log("You chose " + humanSelection);
     console.log("The computer chose " + computerSelection);
 
+    
     function computerPlay() {
         const computerMoveChoices = ["rock", "paper", "scissors"];
         let computerSelection = computerMoveChoices[Math.floor(Math.random() * 3)];
@@ -18,10 +44,14 @@ function playGame() {
     if (humanSelection === "rock" && computerSelection === "scissors" 
     || humanSelection === "paper" && computerSelection === "rock" 
     || humanSelection === "scissors" && computerSelection === "paper") {
-        alert(`BOOM! The computer chose ${computerSelection}! You Won!`);
+        buttonDiv.appendChild(outcomeMessage).innerHTML = "The computer chose " + computerSelection + ". You Win!";
     } else if (humanSelection === computerSelection) {
-        alert(`Awkward.. the computer chose ${computerSelection}, too! You Tied!`);
+        buttonDiv.appendChild(outcomeMessage).innerHTML = "The computer chose " + computerSelection + ". You Tied!";
     } else {
-        alert(`OUCH! The computer chose ${computerSelection}! You Lost!`);
+        buttonDiv.appendChild(outcomeMessage).innerHTML = "The computer chose " + computerSelection + ". You Lost!"; 
     }
+
+    removeElementsByClass("btn");
+    buttonDiv.appendChild(restartButton);
 }
+

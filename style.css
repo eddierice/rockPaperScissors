@@ -24,7 +24,7 @@ body {
     flex-direction: column;
 }
 
-h1 {
+#title {
     color: white;
     margin: 0px auto 30px auto;
     padding: 0;
@@ -42,9 +42,32 @@ button {
     font-weight: bolder;
     text-transform: uppercase;
     border-radius: 15px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+button:hover {
+
+    box-shadow: 2px 2px 20px #ff6363;
+}
+
+.restart, .restart:hover {
+    background-color: #ff6363;
+    color: white;
+    border: none;
+    padding: 20px 40px;
+    margin: 0px 10px;
+    font-size: 2rem;
+    font-weight: bolder;
+    text-transform: uppercase;
+    border-radius: 15px;
     box-shadow: 2px 2px 20px #ff6363;
     -webkit-appearance: none;
     -moz-appearance: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
 }
 
 p, a, a:hover {
@@ -53,8 +76,14 @@ p, a, a:hover {
     color: white;
 }
 
+.outcomeMessage {
+    color: #00e013;
+    text-align: center;
+    padding: 0px 10px;
+}
+
 @media only screen and (max-width: 900px) {
-    h1 {
+    #title {
         font-size: 1.5rem;
         letter-spacing: -2px;
     }
@@ -70,5 +99,13 @@ p, a, a:hover {
         padding: 30px 50px;
         margin: 10px auto;
         font-size: 3rem;
+    }
+
+    .outcomeMessage {
+        font-size: 1.5rem;
+    }
+
+    .restart {
+        font-size: 1rem;
     }
   }
