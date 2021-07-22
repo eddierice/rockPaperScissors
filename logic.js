@@ -45,10 +45,13 @@ function playGame() {
     || humanSelection === "paper" && computerSelection === "rock" 
     || humanSelection === "scissors" && computerSelection === "paper") {
         buttonDiv.appendChild(outcomeMessage).innerHTML = "The computer chose " + computerSelection + ". You Win!";
+        outcomeMessage.className = "animate__animated animate__flash outcomeMessage";
     } else if (humanSelection === computerSelection) {
         buttonDiv.appendChild(outcomeMessage).innerHTML = "The computer chose " + computerSelection + ". You Tied!";
+        outcomeMessage.className = "animate__animated animate__rubberBand outcomeMessage";
     } else {
-        buttonDiv.appendChild(outcomeMessage).innerHTML = "The computer chose " + computerSelection + ". You Lost!"; 
+        buttonDiv.appendChild(outcomeMessage).innerHTML = "The computer chose " + computerSelection + ". You Lost!";
+        outcomeMessage.className = "animate__animated animate__shakeX outcomeMessage";
     }
 
     removeElementsByClass("btn");
